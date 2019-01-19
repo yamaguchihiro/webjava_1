@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>UserList</title>
+</head>
+<body>
+	<span class="message" th:text="${message}"></span>
+	<hr>
+	<dl>
+		<th:block th:each="item: ${itemlist}">
+			<form action="#" th:action="@{/ShoppingSite}" th:object="${ListForm}"
+				method="post">
+				<span class="name" th:text="${item.Name}"></span>
+				<span class="Price" th:text="${item.Price} + 円"></span>
+				<input type="hidden" name="item.Name" th:value="${item.Name}" />
+				<input type="hidden" name="item.Price" th:value="${item.Price}" />
+				<input type="number" name="num" value="1" />
+					<input type="submit" value="カートに追加" />
+			</form>
+		</th:block>
+			<hr>
+			<span class="TotalPrice" th:text="合計金額： + ${TotalPrice} + 円"></span>
+			<br>
+	<th:block th:each="order: ${cart.orderlist}">
+				<span class="name" th:text="${order.item.Name}"></span>
+				<span class="Price" th:text="${order.item.Price} + 円"></span>
+				<span class="num" th:text="${order.num} + 個"></span>
+				<br>
+		</th:block>
+	</dl>
+</body>
+</html>
