@@ -73,8 +73,6 @@ public class ListController {
 
       // エラーがある場合はそのまま戻す
       mav.addObject("ListForm", new ListForm());  // 新規クラスを設定
-      List<Item> itemlist = ListService.getItemList();
-      mav.addObject("itemlist", itemlist);
       // Viewのテンプレート名を設定
       return new ModelAndView("redirect:/ShoppingSite");
     }

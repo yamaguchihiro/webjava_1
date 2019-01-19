@@ -1,7 +1,10 @@
 package jp.co.systena.tigerscave.ShoppingSite.application.model;
 
+import javax.validation.constraints.Min;
+
 public class ListForm {
 
+  @Min(1)
   private int num;
   private Item item;
 
